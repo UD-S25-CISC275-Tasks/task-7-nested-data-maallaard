@@ -266,10 +266,10 @@ export function duplicateQuestionInArray(
 ): Question[] {
     let result: Question[] = [];
     questions.forEach((question) => {
-        result.push(question);
+        result = [...result, question];
         if (question.id === targetId) {
             const duplicated = duplicateQuestion(newId, question);
-            result.push(duplicated);
+            result = [...result, duplicated];
         }
     });
     return result;
