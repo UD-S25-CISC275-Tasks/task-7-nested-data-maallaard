@@ -96,8 +96,8 @@ export function toCSV(questions: Question[]): string {
             questions[i].options.length.toString(),
             questions[i].points.toString(),
             questions[i].published ? "true" : "false",
-        ]
-        csv = [...csv, line.join(",")]
+        ];
+        csv = [...csv, line.join(",")];
     }
     return csv.join("\n");
 }
@@ -110,7 +110,7 @@ export function toCSV(questions: Question[]): string {
  */
 export function makeAnswers(questions: Question[]): Answer[] {
     let answers: Answer[] = [];
-    questions.forEach((x) =>
+    questions.forEach((x) => {
         answers = [
             ...answers,
             ({
@@ -120,7 +120,7 @@ export function makeAnswers(questions: Question[]): Answer[] {
                 correct: false,
             }),
         ];
-    );
+    });
     return answers;
 }
 
@@ -130,12 +130,12 @@ export function makeAnswers(questions: Question[]): Answer[] {
  */
 export function publishAll(questions: Question[]): Question[] {
     let allPublished: Question[] = [];
-    questions.forEach((x) =>
+    questions.forEach((x) => {
         allPublished = [
             ...allPublished,
             (x = { ...x, options: [...x.options], published: true }),
-        ),
-    );
+        ];
+    });
     return [...allPublished];
 }
 
